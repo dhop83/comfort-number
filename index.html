@@ -12,6 +12,7 @@
     .grid input, .grid select { width: 100%; padding: 0.5rem; font-size: 1rem; }
     .output { background: #f5f5f5; padding: 1rem; border-radius: 4px; margin-top: 1rem; }
     .output div { margin-bottom: 0.5rem; }
+    .output span { font-size: 1.5rem; font-weight: bold; }
     @media (max-width: 500px) {
       .grid { grid-template-columns: 1fr; }
     }
@@ -26,6 +27,8 @@
       <label>Current Monthly Expenses ($):<input type="number" id="monthlyExpenses" value="4000" min="0"/></label>
       <label>Months of Expenses to Cover:<input type="number" id="expenseMonths" value="6" min="1" max="15"/></label>
       <label>Desired Emergency Savings ($):<input type="number" id="emergencySavings" value="10000" min="0"/></label>
+    </div>
+    <div class="grid">
       <label>Current Monthly Income ($):<input type="number" id="monthlyIncome" value="6000" min="0"/></label>
       <label>Months of Income to Cover:<input type="number" id="incomeMonths" value="6" min="1" max="15"/></label>
     </div>
