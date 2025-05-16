@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Comfort Number Calculator</title>
   <style>
-    body { font-family: Arial, sans-serif; margin: 0; padding: 1rem; max-width: 600px; margin-left: auto; margin-right: auto; }
+    body { font-family: Arial, sans-serif; margin: 0; padding: 1rem; max-width: 600px; margin: auto; display: flex; flex-direction: column; }
     h1 { text-align: center; }
     .section { margin-bottom: 2rem; }
     .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
@@ -13,9 +13,8 @@
     .output { background: #f5f5f5; padding: 1rem; border-radius: 4px; margin-top: 1rem; }
     .output div { margin-bottom: 0.5rem; }
     .output span { font-size: 1.5rem; font-weight: bold; }
-    @media (max-width: 500px) {
-      .grid { grid-template-columns: 1fr; }
-    }
+    footer { text-align: center; margin-top: 2rem; font-size: 0.9rem; color: #666; }
+    @media (max-width: 500px) { .grid { grid-template-columns: 1fr; } }
   </style>
 </head>
 <body>
@@ -24,13 +23,13 @@
   <div class="section">
     <h2>1. Compute Comfort Number</h2>
     <div class="grid">
-      <label>Current Monthly Expenses ($):<input type="number" id="monthlyExpenses" value="4000" min="0"/></label>
-      <label>Months of Expenses to Cover:<input type="number" id="expenseMonths" value="6" min="1" max="15"/></label>
-      <label>Desired Emergency Savings ($):<input type="number" id="emergencySavings" value="10000" min="0"/></label>
+      <label>Current Monthly Expenses ($):<input type="number" id="monthlyExpenses" value="4000" min="0"></label>
+      <label>Months of Expenses to Cover:<input type="number" id="expenseMonths" value="6" min="1" max="15"></label>
+      <label>Desired Emergency Savings ($):<input type="number" id="emergencySavings" value="10000" min="0"></label>
     </div>
     <div class="grid">
-      <label>Current Monthly Income ($):<input type="number" id="monthlyIncome" value="6000" min="0"/></label>
-      <label>Months of Income to Cover:<input type="number" id="incomeMonths" value="6" min="1" max="15"/></label>
+      <label>Current Monthly Income ($):<input type="number" id="monthlyIncome" value="6000" min="0"></label>
+      <label>Months of Income to Cover:<input type="number" id="incomeMonths" value="6" min="1" max="15"></label>
     </div>
     <div class="output">
       <div>Total Expense Coverage: $<span id="expenseCoverage">0</span></div>
@@ -42,8 +41,8 @@
   <div class="section">
     <h2>2. Time to Comfort Number</h2>
     <div class="grid">
-      <label>Current Savings Balance ($):<input type="number" id="currentSavings" value="5000" min="0"/></label>
-      <label>Monthly Savings Contribution ($):<input type="number" id="monthlyContribution" value="1000" min="1"/></label>
+      <label>Current Savings Balance ($):<input type="number" id="currentSavings" value="5000" min="0"></label>
+      <label>Monthly Savings Contribution ($):<input type="number" id="monthlyContribution" value="1000" min="1"></label>
     </div>
     <div class="output">
       <div>Months to Comfort Number: <span id="monthsToComfort">0</span></div>
@@ -72,9 +71,9 @@
       const incCov = parseFloat(monthlyIncome.value) * parseFloat(incomeMonths.value);
       const comfort = expCov + parseFloat(emergencySavings.value) + incCov;
 
-      expenseCoverageEl.textContent = expCov.toLocaleString(undefined, {maximumFractionDigits:0});
-      incomeCoverageEl.textContent = incCov.toLocaleString(undefined, {maximumFractionDigits:0});
-      comfortNumberEl.textContent = comfort.toLocaleString(undefined, {maximumFractionDigits:0});
+      expenseCoverageEl.textContent = expCov.toLocaleString(undefined, { maximumFractionDigits: 0 });
+      incomeCoverageEl.textContent = incCov.toLocaleString(undefined, { maximumFractionDigits: 0 });
+      comfortNumberEl.textContent = comfort.toLocaleString(undefined, { maximumFractionDigits: 0 });
 
       return comfort;
     }
@@ -93,11 +92,13 @@
 
     [monthlyExpenses, expenseMonths, emergencySavings,
      monthlyIncome, incomeMonths, currentSavings,
-     monthlyContribution].forEach(el => {
-      el.addEventListener('input', calculateTime);
-    });
+     monthlyContribution].forEach(el => el.addEventListener('input', calculateTime));
 
     window.addEventListener('load', calculateTime);
   </script>
+
+  <footer>
+    &copy; 2025 Dale Hopkinson. All Rights Reserved
+  </footer>
 </body>
 </html>
