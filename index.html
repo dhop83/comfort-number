@@ -79,15 +79,16 @@
     }
 
     .instructions {
-      background: linear-gradient(135deg, #ffeaa7, #fab1a0);
+      background: linear-gradient(135deg, #74b9ff, #0984e3);
       padding: 1.5rem;
       border-radius: 15px;
       margin-bottom: 2rem;
-      border-left: 5px solid #e17055;
+      border-left: 5px solid #0984e3;
+      color: white;
     }
 
     .instructions h3 {
-      color: #2d3436;
+      color: white;
       margin-bottom: 1rem;
       font-size: 1.3rem;
       display: flex;
@@ -96,7 +97,7 @@
     }
 
     .instructions ul {
-      color: #2d3436;
+      color: white;
       padding-left: 1.5rem;
       line-height: 1.6;
     }
@@ -231,7 +232,8 @@
     }
 
     .progress-section .output-value {
-      color: #fdcb6e;
+      color: #00b894;
+      font-weight: 700;
     }
 
     .icon {
@@ -332,13 +334,13 @@
 
     <div class="content">
       <div class="instructions">
-        <h3>📋 How to Use This Calculator</h3>
+        <h3>📋 Quick Start Guide</h3>
         <ul>
-          <li><strong>Comfort Number:</strong> Your total financial safety net combining expense coverage, emergency savings, and income replacement</li>
-          <li><strong>Expense Coverage:</strong> Monthly expenses × months you want covered (typically 3-6 months)</li>
-          <li><strong>Income Coverage:</strong> Monthly income × months of replacement needed during transition</li>
-          <li><strong>Emergency Savings:</strong> Additional buffer for unexpected major expenses</li>
-          <li><strong>Time Calculator:</strong> Shows how long it will take to reach your comfort number based on current savings and monthly contributions</li>
+          <li><strong>Step 1:</strong> Enter your monthly spending and how many months you want covered</li>
+          <li><strong>Step 2:</strong> Add your monthly income and backup months needed</li>
+          <li><strong>Step 3:</strong> Set an emergency fund amount for unexpected costs</li>
+          <li><strong>Step 4:</strong> Enter your current savings and monthly contribution</li>
+          <li><strong>Result:</strong> See your target amount and timeline to reach financial peace of mind</li>
         </ul>
       </div>
 
@@ -346,37 +348,37 @@
         <h2><span class="icon">🎯</span> 1. Calculate Your Comfort Number</h2>
         <div class="grid">
           <div class="input-group">
-            <label class="tooltip" data-tooltip="Your total monthly spending including rent, food, utilities, etc.">Current Monthly Expenses ($)</label>
+            <label class="tooltip" data-tooltip="What you spend each month on everything">How much do you spend monthly? ($)</label>
             <input type="number" id="monthlyExpenses" value="4000" min="0">
           </div>
           <div class="input-group">
-            <label class="tooltip" data-tooltip="How many months of expenses to cover (3-12 months recommended)">Months of Expenses Coverage</label>
+            <label class="tooltip" data-tooltip="3-6 months is typical for most people">How many months should this cover?</label>
             <input type="number" id="expenseMonths" value="6" min="1" max="15">
           </div>
           <div class="input-group">
-            <label class="tooltip" data-tooltip="Additional emergency fund for unexpected major expenses">Emergency Savings Buffer ($)</label>
+            <label class="tooltip" data-tooltip="Extra money for big unexpected costs">Emergency fund amount ($)</label>
             <input type="number" id="emergencySavings" value="10000" min="0">
           </div>
           <div class="input-group">
-            <label class="tooltip" data-tooltip="Your current monthly take-home income">Current Monthly Income ($)</label>
+            <label class="tooltip" data-tooltip="Your monthly take-home pay">How much do you earn monthly? ($)</label>
             <input type="number" id="monthlyIncome" value="6000" min="0">
           </div>
           <div class="input-group">
-            <label class="tooltip" data-tooltip="Months of income replacement during job transition">Months of Income Coverage</label>
+            <label class="tooltip" data-tooltip="Time to find a new job if needed">How many months of income backup?</label>
             <input type="number" id="incomeMonths" value="6" min="1" max="15">
           </div>
         </div>
         <div class="output">
           <div class="output-item">
-            <span class="output-label">💸 Total Expense Coverage:</span>
+            <span class="output-label">💸 Expense Protection:</span>
             <span class="output-value">$<span id="expenseCoverage">0</span></span>
           </div>
           <div class="output-item">
-            <span class="output-label">💰 Total Income Coverage:</span>
+            <span class="output-label">💰 Income Backup:</span>
             <span class="output-value">$<span id="incomeCoverage">0</span></span>
           </div>
           <div class="output-item">
-            <span class="output-label">🎯 Your Comfort Number:</span>
+            <span class="output-label">🎯 Your Target Amount:</span>
             <span class="output-value comfort-number">$<span id="comfortNumber">0</span></span>
           </div>
         </div>
