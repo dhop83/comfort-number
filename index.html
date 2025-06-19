@@ -2,8 +2,18 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Comfort Number Calculator</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Financial Comfort Number Calculator | Use Money Well LLC</title>
+  <meta name="description" content="Calculate your financial safety net and emergency fund with Use Money Well LLC's free comfort number calculator. Plan your path to financial security and peace of mind.">
+  <meta name="keywords" content="emergency fund calculator, financial planning, comfort number, financial safety net, budgeting tool, savings calculator">
+  <meta name="robots" content="index, follow">
+  <meta property="og:title" content="Financial Comfort Number Calculator | Use Money Well LLC">
+  <meta property="og:description" content="Calculate your financial safety net and emergency fund with our free comfort number calculator. Plan your path to financial security.">
+  <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Financial Comfort Number Calculator | Use Money Well LLC">
+  <meta name="twitter:description" content="Calculate your financial safety net and emergency fund with our free comfort number calculator.">
+  
   <style>
     * {
       margin: 0;
@@ -11,95 +21,110 @@
       box-sizing: border-box;
     }
 
+    :root {
+      --primary-color: #2563eb;
+      --primary-dark: #1d4ed8;
+      --secondary-color: #059669;
+      --accent-color: #dc2626;
+      --neutral-50: #f9fafb;
+      --neutral-100: #f3f4f6;
+      --neutral-200: #e5e7eb;
+      --neutral-300: #d1d5db;
+      --neutral-600: #4b5563;
+      --neutral-700: #374151;
+      --neutral-800: #1f2937;
+      --neutral-900: #111827;
+      --success-color: #10b981;
+      --warning-color: #f59e0b;
+      --error-color: #ef4444;
+      --focus-ring: 0 0 0 3px rgba(37, 99, 235, 0.2);
+      --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+      --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+      --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    }
+
     body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+      background-color: var(--neutral-50);
       min-height: 100vh;
       padding: 1rem;
+      line-height: 1.6;
+      color: var(--neutral-800);
+    }
+
+    .skip-link {
+      position: absolute;
+      top: -40px;
+      left: 6px;
+      background: var(--primary-color);
+      color: white;
+      padding: 8px;
+      text-decoration: none;
+      border-radius: 4px;
+      z-index: 1000;
+    }
+
+    .skip-link:focus {
+      top: 6px;
     }
 
     .container {
-      max-width: 800px;
+      max-width: 1000px;
       margin: 0 auto;
-      background: rgba(255, 255, 255, 0.95);
-      backdrop-filter: blur(10px);
-      border-radius: 20px;
-      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+      background: white;
+      border-radius: 12px;
+      box-shadow: var(--shadow-lg);
       overflow: hidden;
     }
 
     .header {
-      background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+      background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-dark) 100%);
       padding: 2rem;
       text-align: center;
       color: white;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .header::before {
-      content: '';
-      position: absolute;
-      top: -50%;
-      left: -50%;
-      width: 200%;
-      height: 200%;
-      background: repeating-linear-gradient(
-        45deg,
-        transparent,
-        transparent 10px,
-        rgba(255, 255, 255, 0.05) 10px,
-        rgba(255, 255, 255, 0.05) 20px
-      );
-      animation: shimmer 10s linear infinite;
-    }
-
-    @keyframes shimmer {
-      0% { transform: translateX(-50%) translateY(-50%) rotate(0deg); }
-      100% { transform: translateX(-50%) translateY(-50%) rotate(360deg); }
     }
 
     .header h1 {
-      font-size: 2.5rem;
+      font-size: 2.25rem;
       font-weight: 700;
       margin-bottom: 0.5rem;
-      position: relative;
-      z-index: 1;
+      letter-spacing: -0.025em;
     }
 
-    .header p {
-      font-size: 1.1rem;
+    .header .subtitle {
+      font-size: 1.125rem;
+      opacity: 0.95;
+      margin-bottom: 1rem;
+    }
+
+    .brand {
+      font-size: 0.875rem;
       opacity: 0.9;
-      position: relative;
-      z-index: 1;
+      font-weight: 500;
     }
 
-    .content {
+    .main-content {
       padding: 2rem;
     }
 
     .instructions {
-      background: linear-gradient(135deg, #74b9ff, #0984e3);
+      background: var(--neutral-100);
       padding: 1.5rem;
-      border-radius: 15px;
+      border-radius: 8px;
       margin-bottom: 2rem;
-      border-left: 5px solid #0984e3;
-      color: white;
+      border-left: 4px solid var(--primary-color);
     }
 
-    .instructions h3 {
-      color: white;
+    .instructions h2 {
+      color: var(--neutral-800);
       margin-bottom: 1rem;
-      font-size: 1.3rem;
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
+      font-size: 1.25rem;
+      font-weight: 600;
     }
 
-    .instructions ul {
-      color: white;
+    .instructions ol {
       padding-left: 1.5rem;
-      line-height: 1.6;
+      color: var(--neutral-700);
     }
 
     .instructions li {
@@ -109,22 +134,17 @@
     .section {
       background: white;
       margin-bottom: 2rem;
-      border-radius: 15px;
+      border-radius: 8px;
       padding: 1.5rem;
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-      border: 1px solid rgba(0, 0, 0, 0.05);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-
-    .section:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+      border: 1px solid var(--neutral-200);
+      box-shadow: var(--shadow-sm);
     }
 
     .section h2 {
-      color: #2d3436;
+      color: var(--neutral-800);
       margin-bottom: 1.5rem;
       font-size: 1.5rem;
+      font-weight: 600;
       display: flex;
       align-items: center;
       gap: 0.5rem;
@@ -132,8 +152,8 @@
 
     .grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 1rem;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
       margin-bottom: 1.5rem;
     }
 
@@ -144,33 +164,35 @@
 
     .input-group label {
       font-weight: 600;
-      color: #2d3436;
+      color: var(--neutral-700);
       margin-bottom: 0.5rem;
-      font-size: 0.9rem;
+      font-size: 0.875rem;
     }
 
     .input-group input {
       padding: 0.75rem;
-      border: 2px solid #ddd;
-      border-radius: 10px;
+      border: 2px solid var(--neutral-300);
+      border-radius: 6px;
       font-size: 1rem;
-      transition: all 0.3s ease;
-      background: #f8f9fa;
+      transition: all 0.2s ease;
+      background: white;
     }
 
     .input-group input:focus {
       outline: none;
-      border-color: #4facfe;
-      background: white;
-      box-shadow: 0 0 0 3px rgba(79, 172, 254, 0.1);
-      transform: translateY(-2px);
+      border-color: var(--primary-color);
+      box-shadow: var(--focus-ring);
+    }
+
+    .input-group input:invalid {
+      border-color: var(--error-color);
     }
 
     .output {
-      background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
+      background: var(--neutral-50);
       padding: 1.5rem;
-      border-radius: 15px;
-      border: 2px solid rgba(255, 255, 255, 0.5);
+      border-radius: 8px;
+      border: 1px solid var(--neutral-200);
     }
 
     .output-item {
@@ -179,72 +201,69 @@
       align-items: center;
       margin-bottom: 1rem;
       padding: 0.75rem;
-      background: rgba(255, 255, 255, 0.7);
-      border-radius: 10px;
-      transition: all 0.3s ease;
-    }
-
-    .output-item:hover {
-      background: rgba(255, 255, 255, 0.9);
-      transform: scale(1.02);
+      background: white;
+      border-radius: 6px;
+      border: 1px solid var(--neutral-200);
     }
 
     .output-item:last-child {
       margin-bottom: 0;
-      background: rgba(255, 255, 255, 0.9);
-      border: 2px solid #4facfe;
-      font-weight: 700;
+      background: var(--primary-color);
+      color: white;
+      border-color: var(--primary-color);
+      font-weight: 600;
     }
 
     .output-label {
-      font-weight: 600;
-      color: #2d3436;
+      font-weight: 500;
+      color: inherit;
     }
 
     .output-value {
-      font-size: 1.3rem;
+      font-size: 1.25rem;
       font-weight: 700;
-      color: #00b894;
+      color: var(--success-color);
     }
 
-    .comfort-number {
-      color: #e17055 !important;
-      font-size: 1.5rem !important;
+    .output-item:last-child .output-value {
+      color: white;
+      font-size: 1.5rem;
     }
 
     .progress-section {
-      background: linear-gradient(135deg, #74b9ff, #0984e3);
+      background: var(--primary-color);
       color: white;
+      border-color: var(--primary-color);
     }
 
     .progress-section h2 {
       color: white;
     }
 
-    .progress-section .output {
-      background: rgba(255, 255, 255, 0.2);
-      backdrop-filter: blur(10px);
-    }
-
-    .progress-section .output-item {
-      background: rgba(255, 255, 255, 0.3);
+    .progress-section .input-group label {
       color: white;
     }
 
-    .progress-section .output-value {
-      color: #00b894;
-      font-weight: 700;
+    .progress-section .output {
+      background: rgba(255, 255, 255, 0.1);
+      border-color: rgba(255, 255, 255, 0.2);
     }
 
-    .icon {
-      font-size: 1.2rem;
+    .progress-section .output-item {
+      background: rgba(255, 255, 255, 0.1);
+      color: white;
+      border-color: rgba(255, 255, 255, 0.2);
+    }
+
+    .progress-section .output-value {
+      color: white;
     }
 
     .visual-indicator {
       width: 100%;
-      height: 20px;
-      background: #e0e0e0;
-      border-radius: 10px;
+      height: 24px;
+      background: rgba(255, 255, 255, 0.2);
+      border-radius: 12px;
       overflow: hidden;
       margin-top: 1rem;
       position: relative;
@@ -252,172 +271,335 @@
 
     .progress-bar {
       height: 100%;
-      background: linear-gradient(90deg, #00b894, #00cec9);
-      border-radius: 10px;
-      transition: width 1s ease;
+      background: var(--success-color);
+      border-radius: 12px;
+      transition: width 0.8s ease;
       position: relative;
+      min-width: 2px;
     }
 
-    .progress-bar::after {
-      content: '';
+    .progress-text {
       position: absolute;
-      top: 0;
-      left: -100%;
-      width: 100%;
-      height: 100%;
-      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.6), transparent);
-      animation: shine 2s infinite;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: var(--neutral-800);
+      text-shadow: 0 0 4px rgba(255, 255, 255, 0.8);
     }
 
-    @keyframes shine {
-      0% { left: -100%; }
-      100% { left: 100%; }
-    }
-
-    footer {
-      text-align: center;
-      padding: 1.5rem;
-      color: #636e72;
-      font-size: 0.9rem;
-      background: rgba(0, 0, 0, 0.05);
-    }
-
-    @media (max-width: 768px) {
-      .header h1 {
-        font-size: 2rem;
-      }
-      
-      .grid {
-        grid-template-columns: 1fr;
-      }
-      
-      .content {
-        padding: 1rem;
-      }
-    }
-
-    .tooltip {
+    .tooltip-container {
       position: relative;
+      display: inline-block;
+    }
+
+    .tooltip-icon {
+      display: inline-block;
+      width: 16px;
+      height: 16px;
+      background: var(--neutral-300);
+      border-radius: 50%;
+      color: var(--neutral-600);
+      text-align: center;
+      line-height: 16px;
+      font-size: 12px;
+      font-weight: bold;
+      margin-left: 0.25rem;
       cursor: help;
     }
 
-    .tooltip::after {
-      content: attr(data-tooltip);
+    .tooltip-text {
+      visibility: hidden;
+      opacity: 0;
       position: absolute;
       bottom: 125%;
       left: 50%;
       transform: translateX(-50%);
-      background: #2d3436;
+      background: var(--neutral-800);
       color: white;
       padding: 0.5rem;
-      border-radius: 5px;
-      font-size: 0.8rem;
+      border-radius: 4px;
+      font-size: 0.75rem;
       white-space: nowrap;
-      opacity: 0;
-      visibility: hidden;
-      transition: all 0.3s ease;
       z-index: 1000;
+      transition: all 0.2s ease;
+      max-width: 200px;
+      white-space: normal;
     }
 
-    .tooltip:hover::after {
-      opacity: 1;
+    .tooltip-container:hover .tooltip-text,
+    .tooltip-container:focus-within .tooltip-text {
       visibility: visible;
+      opacity: 1;
+    }
+
+    .sr-only {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border: 0;
+    }
+
+    footer {
+      text-align: center;
+      padding: 1.5rem 2rem;
+      color: var(--neutral-600);
+      font-size: 0.875rem;
+      background: var(--neutral-100);
+      border-top: 1px solid var(--neutral-200);
+    }
+
+    .footer-content {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .footer-links {
+      margin-top: 1rem;
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      flex-wrap: wrap;
+    }
+
+    .footer-links a {
+      color: var(--primary-color);
+      text-decoration: none;
+    }
+
+    .footer-links a:hover,
+    .footer-links a:focus {
+      text-decoration: underline;
+    }
+
+    @media (max-width: 768px) {
+      body {
+        padding: 0.5rem;
+      }
+      
+      .header h1 {
+        font-size: 1.875rem;
+      }
+      
+      .grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+      }
+      
+      .main-content {
+        padding: 1rem;
+      }
+
+      .output-item {
+        flex-direction: column;
+        gap: 0.5rem;
+        text-align: center;
+      }
+
+      .footer-links {
+        flex-direction: column;
+        gap: 1rem;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+      }
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --neutral-50: #111827;
+        --neutral-100: #1f2937;
+        --neutral-200: #374151;
+        --neutral-300: #4b5563;
+        --neutral-600: #d1d5db;
+        --neutral-700: #e5e7eb;
+        --neutral-800: #f3f4f6;
+        --neutral-900: #f9fafb;
+      }
     }
   </style>
 </head>
 <body>
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+  
   <div class="container">
-    <div class="header">
-      <h1>💰 Comfort Number Calculator</h1>
-      <p>Calculate your financial safety net and path to peace of mind</p>
-    </div>
+    <header class="header" role="banner">
+      <h1>Financial Comfort Number Calculator</h1>
+      <p class="subtitle">Calculate your financial safety net and path to peace of mind</p>
+      <p class="brand">Powered by Use Money Well LLC</p>
+    </header>
 
-    <div class="content">
-      <div class="instructions">
-        <h3>📋 Quick Start Guide</h3>
-        <ul>
-          <li><strong>Step 1:</strong> Enter your monthly spending and how many months you want to cover /li>
-          <li><strong>Step 2:</strong> Add your monthly income and backup months needed</li>
-          <li><strong>Step 3:</strong> Set an emergency fund amount for unexpected costs</li>
-          <li><strong>Step 4:</strong> Enter your current savings and monthly contribution</li>
-          <li><strong>Result:</strong> See your comfort number and timeline to reach financial peace of mind</li>
-        </ul>
-      </div>
+    <main id="main-content" class="main-content" role="main">
+      <section class="instructions" aria-labelledby="instructions-heading">
+        <h2 id="instructions-heading">How to Use This Calculator</h2>
+        <ol>
+          <li><strong>Calculate Your Comfort Number:</strong> Enter your monthly expenses, desired coverage months, and emergency fund amount</li>
+          <li><strong>Add Income Protection:</strong> Include your monthly income and desired backup coverage</li>
+          <li><strong>Track Your Progress:</strong> Enter your current savings and monthly contributions</li>
+          <li><strong>View Results:</strong> See your total comfort number and timeline to financial security</li>
+          <li><strong>Plan Your Path:</strong> Use the results to adjust your savings strategy</li>
+        </ol>
+      </section>
 
-      <div class="section">
-        <h2><span class="icon">🎯</span> 1. Calculate Your Comfort Number</h2>
+      <section class="section" aria-labelledby="comfort-heading">
+        <h2 id="comfort-heading">
+          <span aria-hidden="true">🎯</span>
+          Step 1: Calculate Your Comfort Number
+        </h2>
         <div class="grid">
           <div class="input-group">
-            <label class="tooltip" data-tooltip="What you spend each month on everything">What is your monthly expenses? ($)</label>
-            <input type="number" id="monthlyExpenses" value="4000" min="0">
+            <label for="monthlyExpenses">
+              Monthly Expenses ($)
+              <span class="tooltip-container">
+                <span class="tooltip-icon" aria-describedby="expenses-tooltip">?</span>
+                <span class="tooltip-text" id="expenses-tooltip" role="tooltip">
+                  Your total monthly spending including rent, food, utilities, and other necessities
+                </span>
+              </span>
+            </label>
+            <input type="number" id="monthlyExpenses" value="4000" min="0" step="100" 
+                   aria-describedby="expenses-tooltip" required>
           </div>
+          
           <div class="input-group">
-            <label class="tooltip" data-tooltip="6-12 months is typical for most people">How many months of living expenses do you want to have saved?</label>
-            <input type="number" id="expenseMonths" value="6" min="1" max="15">
+            <label for="expenseMonths">
+              Months of Expense Coverage
+              <span class="tooltip-container">
+                <span class="tooltip-icon" aria-describedby="months-tooltip">?</span>
+                <span class="tooltip-text" id="months-tooltip" role="tooltip">
+                  Typically 3-6 months for stable income, 6-12 months for variable income
+                </span>
+              </span>
+            </label>
+            <input type="number" id="expenseMonths" value="6" min="1" max="24" step="1" 
+                   aria-describedby="months-tooltip" required>
           </div>
+          
           <div class="input-group">
-            <label class="tooltip" data-tooltip="Extra money for big unexpected costs">What is your ideal emergency savings amount? ($)</label>
-            <input type="number" id="emergencySavings" value="10000" min="0">
+            <label for="emergencySavings">
+              Emergency Fund Amount ($)
+              <span class="tooltip-container">
+                <span class="tooltip-icon" aria-describedby="emergency-tooltip">?</span>
+                <span class="tooltip-text" id="emergency-tooltip" role="tooltip">
+                  Additional money for major unexpected expenses like medical bills or car repairs
+                </span>
+              </span>
+            </label>
+            <input type="number" id="emergencySavings" value="10000" min="0" step="500" 
+                   aria-describedby="emergency-tooltip" required>
           </div>
+          
           <div class="input-group">
-            <label class="tooltip" data-tooltip="Your monthly take-home pay">What is your monthly income? ($)</label>
-            <input type="number" id="monthlyIncome" value="6000" min="0">
+            <label for="monthlyIncome">
+              Monthly Income ($)
+              <span class="tooltip-container">
+                <span class="tooltip-icon" aria-describedby="income-tooltip">?</span>
+                <span class="tooltip-text" id="income-tooltip" role="tooltip">
+                  Your monthly take-home pay after taxes and deductions
+                </span>
+              </span>
+            </label>
+            <input type="number" id="monthlyIncome" value="6000" min="0" step="100" 
+                   aria-describedby="income-tooltip" required>
           </div>
+          
           <div class="input-group">
-            <label class="tooltip" data-tooltip="Time to find a new job if needed">How many months of income would you liked saved?</label>
-            <input type="number" id="incomeMonths" value="6" min="1" max="15">
+            <label for="incomeMonths">
+              Months of Income Coverage
+              <span class="tooltip-container">
+                <span class="tooltip-icon" aria-describedby="income-months-tooltip">?</span>
+                <span class="tooltip-text" id="income-months-tooltip" role="tooltip">
+                  Time buffer to find new employment if needed, typically 3-6 months
+                </span>
+              </span>
+            </label>
+            <input type="number" id="incomeMonths" value="6" min="1" max="24" step="1" 
+                   aria-describedby="income-months-tooltip" required>
           </div>
         </div>
-        <div class="output">
+        
+        <div class="output" role="region" aria-labelledby="results-heading">
+          <h3 id="results-heading" class="sr-only">Calculation Results</h3>
           <div class="output-item">
-            <span class="output-label">💸 Total Expense Coverage:</span>
-            <span class="output-value">$<span id="expenseCoverage">0</span></span>
+            <span class="output-label">Expense Coverage Total:</span>
+            <span class="output-value" id="expenseCoverage" aria-live="polite">$0</span>
           </div>
           <div class="output-item">
-            <span class="output-label">💰 Total Income Coverage:</span>
-            <span class="output-value">$<span id="incomeCoverage">0</span></span>
+            <span class="output-label">Income Coverage Total:</span>
+            <span class="output-value" id="incomeCoverage" aria-live="polite">$0</span>
           </div>
           <div class="output-item">
-            <span class="output-label">🎯 Your Comfort Number:</span>
-            <span class="output-value comfort-number">$<span id="comfortNumber">0</span></span>
+            <span class="output-label">Your Comfort Number:</span>
+            <span class="output-value" id="comfortNumber" aria-live="polite">$0</span>
           </div>
         </div>
-      </div>
+      </section>
 
-      <div class="section progress-section">
-        <h2><span class="icon">⏱️</span> 2. Time to Reach Your Comfort Number</h2>
+      <section class="section progress-section" aria-labelledby="progress-heading">
+        <h2 id="progress-heading">
+          <span aria-hidden="true">⏱️</span>
+          Step 2: Track Your Progress
+        </h2>
         <div class="grid">
           <div class="input-group">
-            <label>Ent your Current Savings Balance ($)</label>
-            <input type="number" id="currentSavings" value="5000" min="0">
+            <label for="currentSavings">Current Savings Balance ($)</label>
+            <input type="number" id="currentSavings" value="5000" min="0" step="100" required>
           </div>
           <div class="input-group">
-            <label>Monthly Savings ($)</label>
-            <input type="number" id="monthlyContribution" value="1000" min="1">
+            <label for="monthlyContribution">Monthly Savings Contribution ($)</label>
+            <input type="number" id="monthlyContribution" value="1000" min="1" step="50" required>
           </div>
         </div>
-        <div class="output">
+        
+        <div class="output" role="region" aria-labelledby="timeline-heading">
+          <h3 id="timeline-heading" class="sr-only">Timeline Results</h3>
           <div class="output-item">
-            <span class="output-label">📅 Months to Comfort Number:</span>
-            <span class="output-value"><span id="monthsToComfort">0</span> months</span>
+            <span class="output-label">Months to Comfort Number:</span>
+            <span class="output-value" id="monthsToComfort" aria-live="polite">0 months</span>
           </div>
           <div class="output-item">
-            <span class="output-label">🗓️ Years to Comfort Number:</span>
-            <span class="output-value"><span id="yearsToComfort">0</span> years</span>
+            <span class="output-label">Years to Comfort Number:</span>
+            <span class="output-value" id="yearsToComfort" aria-live="polite">0 years</span>
           </div>
           <div class="output-item">
-            <span class="output-label">💪 Current Progress:</span>
-            <span class="output-value"><span id="progressPercentage">0</span>%</span>
+            <span class="output-label">Current Progress:</span>
+            <span class="output-value" id="progressPercentage" aria-live="polite">0%</span>
           </div>
         </div>
-        <div class="visual-indicator">
+        
+        <div class="visual-indicator" role="progressbar" aria-valuenow="0" aria-valuemin="0" 
+             aria-valuemax="100" aria-labelledby="progress-label">
           <div class="progress-bar" id="progressBar"></div>
+          <div class="progress-text" id="progress-label">Progress: 0%</div>
         </div>
-      </div>
-    </div>
+      </section>
+    </main>
 
-    <footer>
-      &copy; 2025 Dale Hopkinson. All Rights Reserved
+    <footer role="contentinfo">
+      <div class="footer-content">
+        <p>&copy; 2025 Use Money Well LLC. All Rights Reserved.</p>
+        <nav class="footer-links" aria-label="Footer navigation">
+          <a href="#privacy">Privacy Policy</a>
+          <a href="#terms">Terms of Service</a>
+          <a href="#contact">Contact Us</a>
+          <a href="#about">About Use Money Well LLC</a>
+        </nav>
+        <p style="margin-top: 1rem; font-size: 0.75rem;">
+          This calculator provides estimates for educational purposes only. 
+          Consult with a qualified financial advisor for personalized advice.
+        </p>
+      </div>
     </footer>
   </div>
 
@@ -425,68 +607,107 @@
     'use strict';
     
     // Get all input elements
-    const monthlyExpenses = document.getElementById('monthlyExpenses');
-    const expenseMonths = document.getElementById('expenseMonths');
-    const emergencySavings = document.getElementById('emergencySavings');
-    const monthlyIncome = document.getElementById('monthlyIncome');
-    const incomeMonths = document.getElementById('incomeMonths');
-    const currentSavings = document.getElementById('currentSavings');
-    const monthlyContribution = document.getElementById('monthlyContribution');
+    const inputs = {
+      monthlyExpenses: document.getElementById('monthlyExpenses'),
+      expenseMonths: document.getElementById('expenseMonths'),
+      emergencySavings: document.getElementById('emergencySavings'),
+      monthlyIncome: document.getElementById('monthlyIncome'),
+      incomeMonths: document.getElementById('incomeMonths'),
+      currentSavings: document.getElementById('currentSavings'),
+      monthlyContribution: document.getElementById('monthlyContribution')
+    };
 
     // Get all output elements
-    const expenseCoverageEl = document.getElementById('expenseCoverage');
-    const incomeCoverageEl = document.getElementById('incomeCoverage');
-    const comfortNumberEl = document.getElementById('comfortNumber');
-    const monthsToComfortEl = document.getElementById('monthsToComfort');
-    const yearsToComfortEl = document.getElementById('yearsToComfort');
-    const progressPercentageEl = document.getElementById('progressPercentage');
-    const progressBarEl = document.getElementById('progressBar');
+    const outputs = {
+      expenseCoverage: document.getElementById('expenseCoverage'),
+      incomeCoverage: document.getElementById('incomeCoverage'),
+      comfortNumber: document.getElementById('comfortNumber'),
+      monthsToComfort: document.getElementById('monthsToComfort'),
+      yearsToComfort: document.getElementById('yearsToComfort'),
+      progressPercentage: document.getElementById('progressPercentage'),
+      progressBar: document.getElementById('progressBar'),
+      progressLabel: document.querySelector('#progress-label')
+    };
+
+    function formatCurrency(num) {
+      return new Intl.NumberFormat('en-US', {
+        style: 'currency',
+        currency: 'USD',
+        minimumFractionDigits: 0,
+        maximumFractionDigits: 0
+      }).format(num);
+    }
 
     function formatNumber(num) {
-      return num.toLocaleString(undefined, { maximumFractionDigits: 0 });
+      return new Intl.NumberFormat('en-US', {
+        minimumFractionDigits: 1,
+        maximumFractionDigits: 1
+      }).format(num);
     }
 
     function calculateComfort() {
-      const expCov = parseFloat(monthlyExpenses.value) * parseFloat(expenseMonths.value);
-      const incCov = parseFloat(monthlyIncome.value) * parseFloat(incomeMonths.value);
-      const comfort = expCov + parseFloat(emergencySavings.value) + incCov;
+      const monthlyExp = parseFloat(inputs.monthlyExpenses.value) || 0;
+      const expMonths = parseFloat(inputs.expenseMonths.value) || 0;
+      const emergency = parseFloat(inputs.emergencySavings.value) || 0;
+      const monthlyInc = parseFloat(inputs.monthlyIncome.value) || 0;
+      const incMonths = parseFloat(inputs.incomeMonths.value) || 0;
 
-      expenseCoverageEl.textContent = formatNumber(expCov);
-      incomeCoverageEl.textContent = formatNumber(incCov);
-      comfortNumberEl.textContent = formatNumber(comfort);
+      const expenseCoverage = monthlyExp * expMonths;
+      const incomeCoverage = monthlyInc * incMonths;
+      const comfortNumber = expenseCoverage + emergency + incomeCoverage;
 
-      return comfort;
+      outputs.expenseCoverage.textContent = formatCurrency(expenseCoverage);
+      outputs.incomeCoverage.textContent = formatCurrency(incomeCoverage);
+      outputs.comfortNumber.textContent = formatCurrency(comfortNumber);
+
+      return comfortNumber;
     }
 
-    function calculateTime() {
-      const comfort = calculateComfort();
-      const currSave = parseFloat(currentSavings.value);
-      const contrib = parseFloat(monthlyContribution.value);
-      const remaining = Math.max(0, comfort - currSave);
-      const months = contrib > 0 ? remaining / contrib : 0;
+    function calculateProgress() {
+      const comfortNumber = calculateComfort();
+      const currentSavings = parseFloat(inputs.currentSavings.value) || 0;
+      const monthlyContrib = parseFloat(inputs.monthlyContribution.value) || 0;
+      
+      const remaining = Math.max(0, comfortNumber - currentSavings);
+      const months = monthlyContrib > 0 ? remaining / monthlyContrib : 0;
       const years = months / 12;
       
       // Calculate progress percentage
-      const progressPercent = comfort > 0 ? Math.min(100, (currSave / comfort) * 100) : 0;
+      const progressPercent = comfortNumber > 0 ? Math.min(100, (currentSavings / comfortNumber) * 100) : 0;
 
-      monthsToComfortEl.textContent = months.toFixed(1);
-      yearsToComfortEl.textContent = years.toFixed(1);
-      progressPercentageEl.textContent = progressPercent.toFixed(1);
+      outputs.monthsToComfort.textContent = formatNumber(months) + ' months';
+      outputs.yearsToComfort.textContent = formatNumber(years) + ' years';
+      outputs.progressPercentage.textContent = formatNumber(progressPercent) + '%';
       
-      // Update progress bar
-      progressBarEl.style.width = progressPercent + '%';
+      // Update progress bar and accessibility attributes
+      outputs.progressBar.style.width = progressPercent + '%';
+      outputs.progressLabel.textContent = `Progress: ${formatNumber(progressPercent)}%`;
+      
+      const progressBarContainer = outputs.progressBar.parentElement;
+      progressBarContainer.setAttribute('aria-valuenow', Math.round(progressPercent));
+      progressBarContainer.setAttribute('aria-valuetext', `${formatNumber(progressPercent)}% complete`);
     }
 
     // Add event listeners to all inputs
-    [monthlyExpenses, expenseMonths, emergencySavings,
-     monthlyIncome, incomeMonths, currentSavings,
-     monthlyContribution].forEach(el => {
-      el.addEventListener('input', calculateTime);
-      el.addEventListener('change', calculateTime);
+    Object.values(inputs).forEach(input => {
+      input.addEventListener('input', calculateProgress);
+      input.addEventListener('change', calculateProgress);
     });
 
     // Initial calculation on page load
-    window.addEventListener('load', calculateTime);
+    document.addEventListener('DOMContentLoaded', calculateProgress);
+
+    // Add keyboard navigation for tooltips
+    document.querySelectorAll('.tooltip-icon').forEach(icon => {
+      icon.setAttribute('tabindex', '0');
+      icon.addEventListener('keydown', function(e) {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          // Focus briefly to show tooltip
+          this.focus();
+        }
+      });
+    });
   </script>
 </body>
 </html>
